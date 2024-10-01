@@ -10,11 +10,11 @@ pipeline {
     stage('deploy') {
       steps {
         sh '''pwd
-sh JenkinBuild.sh'''
+sh buildCmd/JenkinBuild.sh'''
       }
     }
 
-    stage('') {
+    stage('error') {
       steps {
         echo 'finish'
       }
