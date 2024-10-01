@@ -1,9 +1,12 @@
 pipeline {
   agent any
   stages {
-    stage('start') {
+    stage('check git') {
+      agent any
       steps {
-        sh 'echo "hello"'
+        sh '''echo "check git"
+'''
+        git(url: 'git@github.com:dunotek/jenkinsDemo.git', branch: 'develop', changelog: true, poll: true, credentialsId: '902fc8b3-3ba8-48ba-85b5-85eb72b3ecfc')
       }
     }
 
