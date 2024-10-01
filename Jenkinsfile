@@ -13,7 +13,9 @@ pipeline {
     stage('deploy') {
       steps {
         sh '''pwd
-sh buildCmd/JenkinBuild.sh'''
+cd buildCmd/
+chmod +x ./JenkinBuild.sh 
+sh ./JenkinBuild.sh'''
       }
     }
 
