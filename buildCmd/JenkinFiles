@@ -2,17 +2,19 @@ pipeline {
     agent any
 
     stages {
-        stage('Prepare') {
+        stage('CheckGit') {
             steps {
-                echo 'Hello World'
+                echo 'CheckGit'
+                git branch: 'develop', credentialsId: '902fc8b3-3ba8-48ba-85b5-85eb72b3ecfc', url: 'git@github.com:dunotek/jenkinsDemo.git'
             }
         }
-stage('Build') {
+        stage('Build') {
             steps {
-                echo 'Hello World'
+                echo 'Build'
+                powershell '/Users/hue/cc373/JenkinsDemo/buildCmd/Build.js'
             }
         }
-stage('Deloy') {
+        stage('Deloy') {
             steps {
                 echo 'Hello World'
             }
