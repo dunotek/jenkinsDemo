@@ -1,4 +1,3 @@
 #!/bin/bash
-npm i
 npm -v
-node Build.js
+node buildCmd/Build.js

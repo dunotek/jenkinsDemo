@@ -8,17 +8,6 @@ pipeline {
                 git branch: 'develop', credentialsId: '902fc8b3-3ba8-48ba-85b5-85eb72b3ecfc', url: 'git@github.com:dunotek/jenkinsDemo.git'
             }
         }
-stage('Setup') {
-        // Run the maven build
-        withEnv(["MVN_HOME=$mvnHome"]) {
-            if (isUnix()) {
-                sh '"$MVN_HOME/bin/mvn" -Dmaven.test.failure.ignore clean package'
-            } else {
-                bat(/"%MVN_HOME%\bin\mvn" -Dmaven.test.failure.ignore clean package/)
-            }
-        }
-    }
-
         stage('Build') {
             steps {
                 echo 'Build'
