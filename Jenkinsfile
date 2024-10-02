@@ -13,6 +13,7 @@ pipeline {
     stage('build') {
       steps {
         sh '''pwd
+cd buildCmd/
 chmod +x ./JenkinBuild.sh 
 sh ./JenkinBuild.sh'''
       }
