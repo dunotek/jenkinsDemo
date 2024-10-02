@@ -6,10 +6,11 @@ pipeline {
       steps {
         sh '''echo "check git"
 '''
+        git(credentialsId: '902fc8b3-3ba8-48ba-85b5-85eb72b3ecfc', branch: 'develop', changelog: true, poll: true, url: 'git@github.com:dunotek/jenkinsDemo.git')
       }
     }
 
-    stage('deploy') {
+    stage('build') {
       steps {
         sh '''pwd
 cd buildCmd/
@@ -18,7 +19,7 @@ sh ./JenkinBuild.sh'''
       }
     }
 
-    stage('error') {
+    stage('deloy') {
       steps {
         echo 'finish'
       }
